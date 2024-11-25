@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="garums">garums (M)</label>
+    <input type="number" id="garums">
+    <label for="svars">svars (KG)</label>
+    <input type="number" id="svars">
+    <button id="button">Aprēķināt ĶMI</button>
+    <p id="output"></p>
+    <script>
+        let button = document.getElementById("button");
+        button.addEventListener("click",calk)
+        function calk() {
+
+            let garums = document.getElementById("garums").value;
+            let svars = document.getElementById("svars").value;
+            let output = document.getElementById("output");
+           output.innerHTML =  svars / (garums * garums);  
+           if (output.innerHTML <= 18.5){
+        output.innerHTML = "Nepietiekams svars: " + output.innerHTML
+    } else if (output.innerHTML < 24.9){
+        output.innerHTML = "Normāls svars: " + output.innerHTML
+    } else if (output.innerHTML < 29.9){
+        output.innerHTML = "Liekais svars: " + output.innerHTML
+    } else if (output.innerHTML >= 30){
+        output.innerHTML = "Aptaukošanās: " + output.innerHTML
+    }
+        }
+    
+
+
+
+    </script>
+</body>
+</html>
